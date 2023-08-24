@@ -1,6 +1,9 @@
 import { PATH } from '@/contants/path'
 import ICONS from '@/contants/icons'
 import { Link } from 'react-router-dom'
+import { Popover } from '@/components/Popover'
+import vn from '@/assets/images/vn-flag.svg'
+import us from '@/assets/images/us-flag.svg'
 
 export default function Footer() {
   return (
@@ -64,11 +67,29 @@ export default function Footer() {
         <div className="border-t border-t-gray-200 p-4 text-center text-sm">
           <div className="flex items-center justify-center gap-3">
             <p>2023 spacedev.vn</p>
-            <button className="flex items-center gap-1 px-2 py-1 transition-all hover:text-[#e53935]">
+            <Popover
+              referenceClassName="flex items-center gap-1 px-2 py-1 transition-all hover:text-black"
+              floatingClassName="flex rounded-sm border border-gray-200 bg-white shadow-md"
+              placement="top"
+              renderFloating={
+                <>
+                  <button
+                    className="block p-2 text-center text-sm transition-all hover:bg-gray-100"
+                  >
+                    <img src={vn} alt="Vietnam flag" className="h-5 w-5 object-cover" />
+                  </button>
+                  <button
+                    className="block border-l border-l-gray-200 p-2 text-center text-sm transition-all hover:bg-gray-100"
+                  >
+                    <img src={us} alt="USA flag" className="h-5 w-5 object-cover" />
+                  </button>
+                </>
+              }
+            >
               <ICONS.language className="mt-[0.0625rem] h-3.5 w-3.5" />
               <span>Tiếng Việt</span>
               <ICONS.chevronDown className="mt-1 h-3 w-3" />
-            </button>
+            </Popover>
           </div>
           <p className="mt-1">
             Đây là project trong khoá học của{' '}
