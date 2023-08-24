@@ -65,7 +65,7 @@ export default function Header() {
           <div
             className="flex flex-col rounded-sm border border-gray-200 bg-white shadow-md"
             ref={refs.setFloating}
-            style={{ ...floatingStyles, ...styles, top: 6 }}
+            style={{ ...floatingStyles, ...styles }}
             {...getFloatingProps()}
           >
             <Link
