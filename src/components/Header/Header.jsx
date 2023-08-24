@@ -1,3 +1,20 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import {
+  FloatingPortal,
+  safePolygon,
+  useFloating,
+  useHover,
+  useInteractions,
+  useTransitionStyles,
+} from '@floating-ui/react'
+
+import ICONS from '@/contants/icons'
+import { PATH } from '@/contants/path'
+import { HamburgerMenu } from '@/components/Header'
+import defaultAvatar from '@/assets/images/default-avatar.png'
+import logo from '@/assets/images/logo.svg'
+
 export default function Header() {
   const [isOpenSidebar, seIsOpenSidebar] = useState(false)
   const [isOpenPopover, setIsOpenPopover] = useState(false)
@@ -25,14 +42,14 @@ export default function Header() {
 
   return (
     <header className="boder-b-gray-200 flex h-14 w-full items-center justify-between border-b bg-white shadow-sm">
-      {/* Hamburger Icon */}
-      <div className="boder-r-gray-200 ease flex h-full w-14 items-center justify-center border-r transition duration-300 hover:bg-black/5">
-        <HamburgerMenu isOpen={isOpenSidebar} seIsOpen={seIsOpenSidebar} />
-      </div>
-      {/* End Hamburger Icon */}
+      {/* Hamburger Menu */}
+
+      <HamburgerMenu isOpen={isOpenSidebar} seIsOpen={seIsOpenSidebar} />
+
+      {/* End Hamburger Menu */}
       {/* Logo */}
       <Link to={PATH.home}>
-        <img src={logo} alt="Spacedev" className="h-12 w-12 object-cover" />
+        <img src={logo} alt="Spacedev" className="h-9 w-9 object-cover sm:h-12 sm:w-12" />
       </Link>
       {/* End Logo */}
       {/* Account */}
@@ -40,7 +57,7 @@ export default function Header() {
         <div className="h-9 w-9 overflow-hidden rounded-full">
           <img src={defaultAvatar} alt="Default avatar" className="h-full w-full object-cover" />
         </div>
-        <div className="bg-down-arrow h-3 w-3"></div>
+        <ICONS.chevronDown className="h-4 w-4" />
       </button>
       {/* End Account */}
       {/* Popover */}
