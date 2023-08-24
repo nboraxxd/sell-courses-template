@@ -9,6 +9,9 @@ export default {
       fontFamily: {
         avo: ['SVN-Avo', 'sans-serif'],
       },
+      backgroundImage: {
+        'down-arrow': 'url(\'@/assets/images/down-arrow.svg\')',
+      },
     },
     backgroundImage: {
       'down-arrow': "url('@/assets/images/down-arrow.svg')",
