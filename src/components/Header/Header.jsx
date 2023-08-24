@@ -1,19 +1,3 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import {
-  FloatingPortal,
-  safePolygon,
-  useFloating,
-  useHover,
-  useInteractions,
-  useTransitionStyles,
-} from '@floating-ui/react'
-
-import { PATH } from '@/config/path'
-import { HamburgerMenu } from '@/components/Header'
-import defaultAvatar from '@/assets/images/default-avatar.png'
-import logo from '@/assets/images/logo.svg'
-
 export default function Header() {
   const [isOpenSidebar, seIsOpenSidebar] = useState(false)
   const [isOpenPopover, setIsOpenPopover] = useState(false)

@@ -13,6 +13,9 @@ export default {
         'down-arrow': 'url(\'@/assets/images/down-arrow.svg\')',
       },
     },
+    backgroundImage: {
+      'down-arrow': "url('@/assets/images/down-arrow.svg')",
+    },
   },
   plugins: [
     plugin(function ({ addComponents, theme }) {
