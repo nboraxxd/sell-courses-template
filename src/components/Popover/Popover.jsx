@@ -16,13 +16,15 @@ export default function Popover(props) {
     floatingClassName = 'flex flex-col rounded-sm border border-gray-200 bg-white shadow-md',
     placement = 'bottom-end',
     renderFloating,
+    isOpenFloating,
+    setIsOpenFloating,
   } = props
 
   const [_isOpen, _setIsOpen] = useState(false)
 
   const { refs, context, floatingStyles } = useFloating({
-    open: _isOpen,
-    onOpenChange: _setIsOpen,
+    open: isOpenFloating ?? _isOpen,
+    onOpenChange: setIsOpenFloating ?? _setIsOpen,
     placement: placement,
   })
 
@@ -41,9 +43,21 @@ export default function Popover(props) {
     },
   })
 
+  function onClickReference() {
+    if (isMounted === true) {
+      !setIsOpenFloating ?? setIsOpenFloating(false)
+      setIsOpenFloating ?? _setIsOpen(false)
+    }
+  }
+
   return (
     <>
-      <Element className={referenceClassName} ref={refs.setReference} {...getReferenceProps()}>
+      <Element
+        className={referenceClassName}
+        ref={refs.setReference}
+        {...getReferenceProps()}
+        onClick={onClickReference}
+      >
         {children}
       </Element>
       {isMounted && (

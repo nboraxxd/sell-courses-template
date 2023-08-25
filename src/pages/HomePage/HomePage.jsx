@@ -1,3 +1,9 @@
+import { Banner } from '@/pages/HomePage'
+
 export default function HomePage() {
-  return <div>HomePage</div>
+  return (
+    <main className="pt-heightHeaderSM sm:pt-heightHeader">
+      <Banner />
+    </main>
+  )
 }

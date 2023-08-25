@@ -11,7 +11,7 @@ export default {
       },
       colors: {
         primary: '#db3244',
-        secondary: '#F5F5F5',
+        secondary: '#3F51B5',
         light: '#F4F7F6',
         dark: '#F4F7F6',
         darkest: '#111111',
@@ -21,7 +21,12 @@ export default {
         DEFAULT: '0.0625rem 0 0 rgb(0 0 0 / 40%)',
         lg: '0 8px 16px var(--tw-shadow-color)',
       },
+      spacing: {
+        heightHeader: '3.5rem',
+        heightHeaderSM: '3rem',
+      },
     },
+    heightHeader: '3.5rem',
     backgroundImage: {
       'down-arrow': "url('@/assets/images/down-arrow.svg')",
     },

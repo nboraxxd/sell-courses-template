@@ -4,15 +4,16 @@ import { Link } from 'react-router-dom'
 import ICONS from '@/contants/icons'
 import { PATH } from '@/contants/path'
 import { HamburgerMenu } from '@/components/Header'
+import { Popover } from '@/components/Popover'
 import defaultAvatar from '@/assets/images/default-avatar.png'
 import logo from '@/assets/images/logo.svg'
-import { Popover } from '@/components/Popover'
 
 export default function Header() {
   const [isOpenSidebar, seIsOpenSidebar] = useState(false)
+  const [isOpenPopover, setIsOpenPopover] = useState(false)
 
   return (
-    <header className="boder-b-gray-200 flex h-14 w-full items-center justify-between border-b bg-white shadow-sm">
+    <header className="boder-b-gray-200 h-heightHeaderSM fixed left-0 top-0 z-30 flex w-full items-center justify-between border-b bg-white shadow-sm sm:h-heightHeader">
       {/* Hamburger Menu */}
       <HamburgerMenu isOpen={isOpenSidebar} seIsOpen={seIsOpenSidebar} />
       {/* End Hamburger Menu */}
@@ -23,22 +24,30 @@ export default function Header() {
       {/* End Logo */}
       {/* Account */}
       <Popover
-        referenceClassName="mr-4 flex items-center gap-2 p-2"
+        isOpenFloating={isOpenPopover}
+        setIsOpenFloating={setIsOpenPopover}
+        referenceClassName="mr-2 md:mr-4 flex items-center gap-2 p-2"
         renderFloating={
           <>
             <Link
               to="#!"
               className="block border-b border-b-gray-200 p-4 text-right font-semibold transition-all hover:bg-gray-100 md:p-5"
+              onClick={() => setIsOpenPopover(false)}
             >
               Khoá học của tôi
             </Link>
             <Link
               to="#!"
               className="block border-b border-b-gray-200 p-4 text-right font-semibold transition-all hover:bg-gray-100 md:p-5"
+              onClick={() => setIsOpenPopover(false)}
             >
               Thông tin tài khoản
             </Link>
-            <Link to="#!" className="block p-4 text-right font-semibold transition-all hover:bg-gray-100 md:p-5">
+            <Link
+              to="#!"
+              className="block p-4 text-right font-semibold transition-all hover:bg-gray-100 md:p-5"
+              onClick={() => setIsOpenPopover(false)}
+            >
               Đăng xuất
             </Link>
           </>
